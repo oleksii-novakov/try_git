@@ -1,0 +1,27 @@
+#Configured by *.yml file under 'configuration-path' property.
+#LABEL_NAME: ['BRANCH_NAME/*']
+#bug: ['bugfix/*']
+#hotfix: ['hotfix/*']
+#Release: ['release/*']
+#Team One: ['feature/ETNL1-*']
+#Double Power: ['feature/ETNL-*']
+#
+#if no config provided - defaults are:
+#feature: ['feature/*', 'feat/*'],
+#fix: 'fix/*',
+#chore: 'chore/*'
+#
+name: PR Labeler
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  pr-labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: TimonVS/pr-labeler-action@v3
+        with:
+          configuration-path: .github/pr-labeler-config.yml # optional, .github/pr-labeler.yml is the default value
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

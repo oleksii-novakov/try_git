@@ -1,0 +1,5 @@
+bug: ['bugfix/*']
+hotfix: ['hotfix/*']
+Release: ['release/*']
+Team One: ['feature/ETNL1-*', 'bugfix/*', 'hotfix/*']
+Double Power: ['feature/ETNL-*', 'bugfix/*', 'hotfix/*']
